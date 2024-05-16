@@ -1,4 +1,4 @@
-﻿namespace SmartGolfGlove
+﻿namespace SmartGolfGlove_V2
 {
     public partial class AppShell : Shell
     {

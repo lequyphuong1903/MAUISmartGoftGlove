@@ -1,8 +1,8 @@
 ﻿<maui:MauiWinUIApplication
-    x:Class="SmartGolfGlove.WinUI.App"
+    x:Class="SmartGolfGlove_V2.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
-    xmlns:local="using:SmartGolfGlove.WinUI">
+    xmlns:local="using:SmartGolfGlove_V2.WinUI">
 
 </maui:MauiWinUIApplication>

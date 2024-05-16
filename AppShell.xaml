@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="SmartGolfGlove.AppShell"
+    x:Class="SmartGolfGlove_V2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:SmartGolfGlove"
-    Shell.FlyoutBehavior="Disabled"
-    Title="SmartGolfGlove">
+    xmlns:local="clr-namespace:SmartGolfGlove_V2">
 
     <ShellContent
-        Title="Home"
+        Title="Home" FlyoutItemIsVisible="False"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <FlyoutItem Route ="Dashboard" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+        Title="Dashboard"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="Dashboard"/>
+        <ShellContent
+        Title="Dashboard"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="Dashboard"/>
+    </FlyoutItem>
 
 </Shell>

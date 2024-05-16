@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace SmartGolfGlove
+namespace SmartGolfGlove_V2
 {
     public static class MauiProgram
     {

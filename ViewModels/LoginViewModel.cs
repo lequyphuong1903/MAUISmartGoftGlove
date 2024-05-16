@@ -1,9 +1,9 @@
 ﻿using Firebase.Auth;
 using Newtonsoft.Json;
-using SmartGolfGlove.Views;
+using SmartGolfGlove_V2.Views;
 using System.ComponentModel;
 
-namespace SmartGolfGlove.ViewModels
+namespace SmartGolfGlove_V2.ViewModels
 {
     internal class LoginViewModel : INotifyPropertyChanged
     {

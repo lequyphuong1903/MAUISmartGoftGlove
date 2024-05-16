@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace SmartGolfGlove
+namespace SmartGolfGlove_V2
 {
     [Application]
     public class MainApplication : MauiApplication

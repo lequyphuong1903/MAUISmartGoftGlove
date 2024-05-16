@@ -1,16 +1,14 @@
-﻿using SmartGolfGlove.ViewModels;
-namespace SmartGolfGlove
+﻿using SmartGolfGlove_V2.ViewModels;
+
+namespace SmartGolfGlove_V2
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
             BindingContext = new LoginViewModel(Navigation);
         }
-
     }
 
 }

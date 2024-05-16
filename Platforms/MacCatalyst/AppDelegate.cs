@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace SmartGolfGlove
+namespace SmartGolfGlove_V2
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

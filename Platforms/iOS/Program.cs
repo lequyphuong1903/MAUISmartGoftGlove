@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace SmartGolfGlove
+namespace SmartGolfGlove_V2
 {
     public class Program
     {
