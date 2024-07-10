@@ -4,67 +4,136 @@
              xmlns:vm="clr-namespace:SmartGolfGlove_V2.ViewModels"
              x:Class="SmartGolfGlove_V2.Views.Dashboard"
              NavigationPage.HasNavigationBar="False">
-
     <ScrollView>
         <Grid
-            BackgroundColor="White"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="FillAndExpand">
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout Grid.Row="0"
-                         HorizontalOptions="CenterAndExpand"
-                        Orientation="Horizontal"
-                        Spacing="20">
-                <Image
-                    Margin="0,30"
-                    Aspect="AspectFit"
-                    HeightRequest="80"
-                    Source="logolabhor.png"
-                    WidthRequest="30" />
+                             HorizontalOptions="CenterAndExpand"
+                             Orientation="Horizontal"
+                             Spacing="20">
                 <Image
                         Margin="0,30"
                         Aspect="AspectFit"
                         HeightRequest="80"
-                        Source="avatar.png"
-                        WidthRequest="80" />
+                        Source="logolabhor.png"
+                        WidthRequest="30" />
+                <Image
+                            Margin="0,30"
+                            Aspect="AspectFit"
+                            HeightRequest="80"
+                            Source="avatar.png"
+                            WidthRequest="80" />
                 <Label
-                        x:Name="WelcomeUser"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        FontSize="15"
-                        TextColor="#1C375C"/>
+                            x:Name="WelcomeUser"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="15"
+                            TextColor="#1C375C"/>
             </StackLayout>
 
             <Frame
-                Grid.Row="1"
-                Margin="0,50,0,0"
-                BorderColor="#1C375C"
-                CornerRadius="50"
-                HasShadow="True"
-                HeightRequest="700">
+                    Grid.Row="1"
+                    Margin="0,0,0,-300"
+                    BackgroundColor="White"
+                    BorderColor="White"
+                    HasShadow="True"
+                    HeightRequest="700">
+                <Grid 
+                    Padding="20,10,20,10"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="20"
+                    VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Orientation="Horizontal">
+                        <Label Text="ABCDEF"/>
+                    </StackLayout>
+                    
+                    <StackLayout
+                        Grid.Row="1"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="50">
+                        <VerticalStackLayout>
+                            <Image
+                                Margin="0,30"
+                                Aspect="AspectFit"
+                                HeightRequest="80"
+                                Source="achievement.png"
+                                WidthRequest="80"/>
+                            <Label
+                                Text="Beginner"
+                                FontSize="15"
+                                Padding="0,0,0,0"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
 
-                <VerticalStackLayout Grid.Row="1" HorizontalOptions="Center">
-                    <Button Text="Connect Smart Glove"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        BackgroundColor="#1C375C"
-                        WidthRequest="200"
-                        HeightRequest="30"
-                        FontSize="15"
-                        LineBreakMode="WordWrap"
-                        TextColor="White"
-                        Padding="0,0,0,0"
-                        CornerRadius="10"
-                        x:Name="ConnectBtn"
-                        Clicked="ConnectCallback">
-                    </Button>
-                </VerticalStackLayout>
+                        <Frame
+                            Background="#C0F3C0"
+                            CornerRadius="10"
+                            Padding="30,20,30,20">
+                            <Label
+                                Text="Lesson"
+                                
+                                TextColor="#EB4D4D"
+                                FontSize="30"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="Center"/>
+                        </Frame>
+                        
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2"
+                                 Margin="0,20"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Orientation="Horizontal">
+                                            <Label Text="ABCDEF"/>
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="3"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="20">
+                        <Image
+                            Margin="0,0"
+                            Aspect="AspectFit"
+                            HeightRequest="80"
+                            Source="glove.png"
+                            WidthRequest="80"
+                            BackgroundColor="#1C375C"/>
+                        <Button Text="Connect Smart Glove"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            BackgroundColor="#1C375C"
+                            WidthRequest="200"
+                            HeightRequest="30"
+                            FontSize="15"
+                            LineBreakMode="WordWrap"
+                            TextColor="White"
+                            Padding="0,0,0,0"
+                            CornerRadius="10"
+                            x:Name="ConnectBtn"
+                            Clicked="ConnectCallback">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+                
             </Frame>
         </Grid>
     </ScrollView>
-    
 
 </ContentPage>
