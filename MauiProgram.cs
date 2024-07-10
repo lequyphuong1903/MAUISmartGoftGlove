@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Syncfusion.Maui.Core.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace SmartGolfGlove_V2
 {
@@ -9,6 +10,7 @@ namespace SmartGolfGlove_V2
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

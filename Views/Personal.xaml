@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:vm="clr-namespace:SmartGolfGlove_V2.ViewModels"
+             x:Class="SmartGolfGlove_V2.Views.Personal"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <chart:SfCartesianChart Title="Signal chart from IMU Sensor" x:Name="lineCha">
+
+                <chart:SfCartesianChart.BindingContext>
+                    <vm:DataViewModel/>
+                </chart:SfCartesianChart.BindingContext>
+
+
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis>
+                        <chart:CategoryAxis.Title>
+                            <chart:ChartAxisTitle Text="Time"></chart:ChartAxisTitle>
+                        </chart:CategoryAxis.Title>
+                    </chart:CategoryAxis>
+
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="g"></chart:ChartAxisTitle>
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+
+            </chart:SfCartesianChart>
+
+            <Button Text="Connect Smart Glove"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                BorderColor="Black"
+                BorderWidth="3"
+                BackgroundColor="Blue"
+                CharacterSpacing="4"
+                WidthRequest="190"
+                HeightRequest="70"
+                FontSize="18"
+                FontAttributes="Bold"
+                LineBreakMode="WordWrap"
+                TextColor="White"
+                Padding="0,0,0,0"
+                CornerRadius="30"
+                x:Name="ConnectBtn"
+                Clicked="ConnectCallback">
+            </Button>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

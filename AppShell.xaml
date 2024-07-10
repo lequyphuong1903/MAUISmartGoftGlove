@@ -3,22 +3,53 @@
     x:Class="SmartGolfGlove_V2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:SmartGolfGlove_V2">
+    xmlns:local="clr-namespace:SmartGolfGlove_V2"
+    xmlns:models="clr-namespace:SmartGolfGlove_V2.Models"
+    xmlns:views="clr-namespace:SmartGolfGlove_V2.Views"
+    xmlns:viewmodels="clr-namespace:SmartGolfGlove_V2.ViewModels"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="True">
 
     <ShellContent
-        Title="Home" FlyoutItemIsVisible="False"
+        FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-    <FlyoutItem Route ="Dashboard" FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent 
+        Title="Dashboard" Icon="{x:Static models:Icons.Dashboard}"
+        ContentTemplate="{DataTemplate views:Dashboard}"/>
         <ShellContent
-        Title="Dashboard"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="Dashboard"/>
+        Title="Personal" Icon="{x:Static models:Icons.Personal}"
+        ContentTemplate="{DataTemplate views:Personal}"/>
         <ShellContent
-        Title="Dashboard"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="Dashboard"/>
+        Title="Contact Us" Icon="{x:Static models:Icons.ContactUs}"
+        ContentTemplate="{DataTemplate views:ContactUs}"/>
+        <ShellContent
+        Title="About Us" Icon="{x:Static models:Icons.AboutUs}"
+        ContentTemplate="{DataTemplate views:AboutUs}"/>
     </FlyoutItem>
+
+    <TabBar>
+        <ShellContent 
+    Title="Dashboard" Icon="{x:Static models:Icons.Dashboard}"
+    ContentTemplate="{DataTemplate views:Dashboard}"/>
+        <ShellContent
+    Title="Personal" Icon="{x:Static models:Icons.Personal}"
+    ContentTemplate="{DataTemplate views:Personal}"/>
+        <ShellContent
+    Title="Contact Us" Icon="{x:Static models:Icons.ContactUs}"
+    ContentTemplate="{DataTemplate views:ContactUs}"/>
+        <ShellContent
+    Title="About Us" Icon="{x:Static models:Icons.AboutUs}"
+    ContentTemplate="{DataTemplate views:AboutUs}"/>
+    </TabBar>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}"></Button>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+    
 
 </Shell>

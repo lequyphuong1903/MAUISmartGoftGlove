@@ -1,5 +1,6 @@
 ﻿using Firebase.Auth;
 using Newtonsoft.Json;
+using SmartGolfGlove_V2.Views;
 using System.ComponentModel;
 
 namespace SmartGolfGlove_V2.ViewModels
@@ -50,7 +51,7 @@ namespace SmartGolfGlove_V2.ViewModels
                 string token = auth.FirebaseToken;
                 if (token != null)
                     await App.Current.MainPage.DisplayAlert("Alert", "User Registered successfully", "OK");
-                await this._navigation.PopAsync();
+                await this._navigation.PushAsync(Dashboard.Instance);
             }
             catch (Exception ex)
             {
