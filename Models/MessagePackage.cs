@@ -5,11 +5,13 @@
         public static float[] phi;
         public static float[] theta;
         public static float[] yaw;
+        static public int head { get; set; }
         static MessagePackage()
         {
             phi = new float[700];
             theta = new float[700];
             yaw = new float[700];
+            head = 0;
         }
     }
 }

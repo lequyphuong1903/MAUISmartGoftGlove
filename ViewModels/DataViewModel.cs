@@ -4,7 +4,7 @@ namespace SmartGolfGlove_V2.ViewModels
 {
     public class DataViewModel
     {
-        static public List<DataModel> Data { get; set; }
+        static public List<DataModel> Data { get; set; }   
         static DataViewModel()
         {
             Data = new List<DataModel>();

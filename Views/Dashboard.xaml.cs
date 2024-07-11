@@ -1,4 +1,3 @@
-using AndroidX.Lifecycle;
 using Newtonsoft.Json;
 using Plugin.BLE;
 using Plugin.BLE.Abstractions.Contracts;
@@ -17,13 +16,6 @@ public partial class Dashboard : ContentPage
     {
         get { return _instance ?? (_instance = new Dashboard()); }
     }
-    List<IDevice> deviceList = new List<IDevice>();
-    private IDevice connectedDevice;
-    private IService service;
-    private ICharacteristic characteristic;
-    public bool isConnected = false;
-    private bool transfer = false;
-    private int head = 0;
 
     public Dashboard()
     {
@@ -38,58 +30,54 @@ public partial class Dashboard : ContentPage
 
     private async void ConnectCallback(object sender, EventArgs e)
     {
-        
-        var ble = CrossBluetoothLE.Current;
-        var adapter = CrossBluetoothLE.Current.Adapter;
-        var state = ble.State;
-
-        adapter.DeviceDiscovered += (s, a) => deviceList.Add(a.Device);
-        await adapter.StartScanningForDevicesAsync();
-        for (int i = 0; i < deviceList.Count; i++)
+        BLE.adapter.DeviceDiscovered += (s, a) => BLE.deviceList.Add(a.Device);
+        await BLE.adapter.StartScanningForDevicesAsync();
+        for (int i = 0; i < BLE.deviceList.Count; i++)
         {
-            if (deviceList[i].Name == "O-Glove")
+            if (BLE.deviceList[i].Name == "O-Glove")
             {
-                Debug.WriteLine(deviceList[i].Name);
+                Debug.WriteLine(BLE.deviceList[i].Name);
                 try
                 {
-                    connectedDevice = deviceList[i];
-                    await connectedDevice.RequestMtuAsync(180);
-                    await adapter.ConnectToDeviceAsync(connectedDevice);
-                    isConnected = true;
+                    BLE.connectedDevice = BLE.deviceList[i];
+                    await BLE.connectedDevice.RequestMtuAsync(180);
+                    await BLE.adapter.ConnectToDeviceAsync(BLE.connectedDevice);
+                    BLE.isConnected = true;
+                    await DisplayAlert("Connection", "Connect Successfully", "OK");
                 }
                 catch (DeviceConnectionException ex)
                 {
-                    // ... could not connect to device
+                    await DisplayAlert("Error", ex.Message, "OK");
                 }
             }       
         }
         
-        if (isConnected)
+        if (BLE.isConnected)
         {
-            ConnectBtn.Text = connectedDevice.Name;
+            ConnectBtn.Text = BLE.connectedDevice.Name;
             ConnectBtn.IsEnabled = false;
-            service = await connectedDevice.GetServiceAsync(Guid.Parse("4fafc201-1fb5-459e-8fcc-c5c9c331914b"));
-            characteristic = await service.GetCharacteristicAsync(Guid.Parse("beb5483e-36e1-4688-b7f5-ea07361b26a8"));
-            characteristic.ValueUpdated += (o, args) =>
+            BLE.service = await BLE.connectedDevice.GetServiceAsync(Guid.Parse("4fafc201-1fb5-459e-8fcc-c5c9c331914b"));
+            BLE.characteristic = await BLE.service.GetCharacteristicAsync(Guid.Parse("beb5483e-36e1-4688-b7f5-ea07361b26a8"));
+            BLE.characteristic.ValueUpdated += (o, args) =>
             {
-                if (transfer)
+                if (BLE.isTransfer)
                 {
                     var bytes = args.Characteristic.Value;
-                    MessagePackage.phi[head] = BitConverter.ToSingle(bytes, 0);
-                    MessagePackage.theta[head] = BitConverter.ToSingle(bytes, 4);
-                    MessagePackage.yaw[head] = BitConverter.ToSingle(bytes, 8);
-                    head++;
+                    MessagePackage.phi[MessagePackage.head] = BitConverter.ToSingle(bytes, 0);
+                    MessagePackage.theta[MessagePackage.head] = BitConverter.ToSingle(bytes, 4);
+                    MessagePackage.yaw[MessagePackage.head] = BitConverter.ToSingle(bytes, 8);
+                    MessagePackage.head++;
                     
-                    if (head>=700)
+                    if (MessagePackage.head >= 700)
                     {
-                        transfer = false;
+                        MessagePackage.head = 0;
+                        BLE.isTransfer = false;
                     }
                     
                 }
                 
             };
-            transfer = true;
-            await characteristic.StartUpdatesAsync();
+            await BLE.characteristic.StartUpdatesAsync();
         }
     }
 }

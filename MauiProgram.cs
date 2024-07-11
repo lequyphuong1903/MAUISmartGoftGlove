@@ -20,7 +20,7 @@ namespace SmartGolfGlove_V2
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            //builder.Services.AddSingleton(new FirebaseClient)
             return builder.Build();
         }
     }
