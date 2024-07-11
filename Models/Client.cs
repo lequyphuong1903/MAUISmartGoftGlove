@@ -1,11 +1,13 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
+using System.Collections.ObjectModel;
 
 namespace SmartGolfGlove_V2.Models
 {
     public class Client
     {
         public static FirebaseClient FirebaseClient { get; set; }
+        public static ObservableCollection<ClientDB> clientDBList { get; set; } = new ObservableCollection<ClientDB>();
         public static string childName { get; set; }
         static Client() 
         {

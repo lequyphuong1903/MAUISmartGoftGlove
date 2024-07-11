@@ -24,6 +24,7 @@ namespace SmartGolfGlove_V2
 #endif
             builder.Services.AddSingleton(new FirebaseClient("https://wristmotionofglove-default-rtdb.firebaseio.com/"));
             builder.Services.AddSingleton<Personal>();
+            builder.Services.AddSingleton<AboutUs>();
             return builder.Build();
         }
     }

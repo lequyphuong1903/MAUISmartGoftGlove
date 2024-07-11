@@ -15,6 +15,7 @@ public partial class Personal : ContentPage
 	{
 		InitializeComponent();
         Client.FirebaseClient = firebaseClient;
+        
 	}
     private void SaveCallback(object sender, EventArgs e)
     {
@@ -110,4 +111,5 @@ public partial class Personal : ContentPage
 
         isTmrRunning = false;
     }
+    
 }
