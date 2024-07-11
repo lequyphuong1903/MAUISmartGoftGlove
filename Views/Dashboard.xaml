@@ -6,9 +6,9 @@
              NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <Grid
-                BackgroundColor="White"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
+            BackgroundColor="White"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
