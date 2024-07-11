@@ -26,8 +26,20 @@ public partial class Dashboard : ContentPage
     {
         var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
         WelcomeUser.Text = "Welcome " + userInfo.User.Email +"\nEvaluate Your Game\nEvaluate Your Life";
+        Client.childName = GetUsernameFromEmail(userInfo.User.Email);
     }
-
+    static string GetUsernameFromEmail(string email)
+    {
+        int index = email.IndexOf('@');
+        if (index > 0)
+        {
+            return email.Substring(0, index);
+        }
+        else
+        {
+            throw new ArgumentException("The provided string is not a valid email address.");
+        }
+    }
     private async void ConnectCallback(object sender, EventArgs e)
     {
         BLE.adapter.DeviceDiscovered += (s, a) => BLE.deviceList.Add(a.Device);

@@ -1,3 +1,5 @@
+using Firebase.Database;
+using Firebase.Database.Query;
 using SmartGolfGlove_V2.Models;
 using SmartGolfGlove_V2.ViewModels;
 using Syncfusion.Maui.Charts;
@@ -7,25 +9,23 @@ namespace SmartGolfGlove_V2.Views;
 
 public partial class Personal : ContentPage
 {
-    private static Personal _instance;
     private bool isTmrRunning = false;
-    private int count = 0;
-    public static Personal Instance
-    {
-        get { return _instance ?? (_instance = new Personal()); }
-    }
-    public Personal()
+
+    public Personal(FirebaseClient firebaseClient)
 	{
 		InitializeComponent();
+        Client.FirebaseClient = firebaseClient;
 	}
     private void SaveCallback(object sender, EventArgs e)
     {
-
+        Client.OnSave();
+        
     }
     private void StartCallback(object sender, EventArgs e)
     {
         isTmrRunning = true;
         Thread thread = new Thread(timer);
+
         thread.Start();
         Debug.WriteLine("Start timer here");
     }

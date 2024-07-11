@@ -7,7 +7,7 @@ namespace SmartGolfGlove_V2.ViewModels
 {
     internal class LoginViewModel : INotifyPropertyChanged
     {
-        public string webApiKey = "AIzaSyDewEwIE2dJUzaXZdJLV4cH1YquL38HZpQ";
+        public string webApiKey = "AIzaSyA6erxTZ8y8ySdyG6dqy1fU7aiDmeiX_j0";
         private INavigation _navigation;
         private string userName;
         private string userPassword;
