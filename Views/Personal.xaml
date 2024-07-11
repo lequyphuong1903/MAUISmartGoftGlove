@@ -7,52 +7,82 @@
              NavigationPage.HasNavigationBar="False">
     
     <ScrollView>
-        <VerticalStackLayout>
-            <chart:SfCartesianChart Title="Signal chart from IMU Sensor" x:Name="lineCha">
+        <Grid
+        BackgroundColor="White"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
 
-                <chart:SfCartesianChart.BindingContext>
-                    <vm:DataViewModel/>
-                </chart:SfCartesianChart.BindingContext>
+            <StackLayout Grid.Row="0"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Padding="0,30,0,30">
+                <Button Text="Start your swing"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#1C375C"
+                    WidthRequest="160"
+                    HeightRequest="50"
+                    FontSize="15"
+                    LineBreakMode="WordWrap"
+                    TextColor="White"
+                    Padding="0,0,0,0"
+                    CornerRadius="20"
+                    x:Name="ConnectBtn"
+                    Clicked="ConnectCallback">
+                </Button>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 Padding="0,0,0,30">
+                <Label Text="READY"
+                       FontSize="80"
+                       FontAttributes="Bold"
+                       TextColor="#33EE33"/>
+            </StackLayout>
 
 
-                <chart:SfCartesianChart.XAxes>
-                    <chart:CategoryAxis>
-                        <chart:CategoryAxis.Title>
-                            <chart:ChartAxisTitle Text="Time"></chart:ChartAxisTitle>
-                        </chart:CategoryAxis.Title>
-                    </chart:CategoryAxis>
+            <StackLayout Grid.Row="2"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <chart:SfCartesianChart 
+                    Title="Signal chart from IMU Sensor"
+                    x:Name="lineCha"
+                    WidthRequest="350"
+                    BackgroundColor="White">
 
-                </chart:SfCartesianChart.XAxes>
+                    <chart:SfCartesianChart.BindingContext>
+                        <vm:DataViewModel/>
+                    </chart:SfCartesianChart.BindingContext>
 
-                <chart:SfCartesianChart.YAxes>
-                    <chart:NumericalAxis>
-                        <chart:NumericalAxis.Title>
-                            <chart:ChartAxisTitle Text="g"></chart:ChartAxisTitle>
-                        </chart:NumericalAxis.Title>
-                    </chart:NumericalAxis>
-                </chart:SfCartesianChart.YAxes>
 
-            </chart:SfCartesianChart>
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis ShowMajorGridLines="False">
+                            <chart:CategoryAxis.Title>
+                                <chart:ChartAxisTitle Text="Time"></chart:ChartAxisTitle>
+                            </chart:CategoryAxis.Title>
+                        </chart:CategoryAxis>
 
-            <Button Text="Connect Smart Glove"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                BorderColor="Black"
-                BorderWidth="3"
-                BackgroundColor="Blue"
-                CharacterSpacing="4"
-                WidthRequest="190"
-                HeightRequest="70"
-                FontSize="18"
-                FontAttributes="Bold"
-                LineBreakMode="WordWrap"
-                TextColor="White"
-                Padding="0,0,0,0"
-                CornerRadius="30"
-                x:Name="ConnectBtn"
-                Clicked="ConnectCallback">
-            </Button>
+                    </chart:SfCartesianChart.XAxes>
 
-        </VerticalStackLayout>
+                    <chart:SfCartesianChart.YAxes ShowMinorGridLines="False">
+                        <chart:NumericalAxis>
+                            <chart:NumericalAxis.Title>
+                                <chart:ChartAxisTitle Text="g"></chart:ChartAxisTitle>
+                            </chart:NumericalAxis.Title>
+                        </chart:NumericalAxis>
+                    </chart:SfCartesianChart.YAxes>
+
+                </chart:SfCartesianChart>
+
+            </StackLayout>
+        </Grid>
     </ScrollView>
 </ContentPage>

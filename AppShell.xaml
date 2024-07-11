@@ -20,14 +20,14 @@
         Title="Dashboard" Icon="{x:Static models:Icons.Dashboard}"
         ContentTemplate="{DataTemplate views:Dashboard}"/>
         <ShellContent
-        Title="Personal" Icon="{x:Static models:Icons.Personal}"
+        Title="Personal Practice" Icon="{x:Static models:Icons.Personal}"
         ContentTemplate="{DataTemplate views:Personal}"/>
         <ShellContent
-        Title="Contact Us" Icon="{x:Static models:Icons.ContactUs}"
-        ContentTemplate="{DataTemplate views:ContactUs}"/>
-        <ShellContent
-        Title="About Us" Icon="{x:Static models:Icons.AboutUs}"
+        Title="Activity" Icon="{x:Static models:Icons.AboutUs}"
         ContentTemplate="{DataTemplate views:AboutUs}"/>
+        <ShellContent
+        Title="About Us" Icon="{x:Static models:Icons.ContactUs}"
+        ContentTemplate="{DataTemplate views:ContactUs}"/>
     </FlyoutItem>
 
     <TabBar>
