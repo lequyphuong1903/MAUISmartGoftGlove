@@ -102,6 +102,7 @@ public partial class Personal : ContentPage
         {
             readyLb.Text = "PLAY";
         });
+        MessagePackage.dataTime = DateTime.Now.ToString();
         BLE.isTransfer = true;
         Thread.Sleep(3000);
         Thread DrawThread = new Thread(new ThreadStart(DrawIt));

@@ -17,6 +17,7 @@ namespace SmartGolfGlove_V2.Models
                 phi = MessagePackage.phi,
                 theta = MessagePackage.theta,
                 yaw = MessagePackage.yaw,
+                dateTime = MessagePackage.dataTime,
             });
         }
     }

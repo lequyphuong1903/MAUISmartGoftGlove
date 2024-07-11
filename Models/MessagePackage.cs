@@ -5,6 +5,7 @@
         public static float[] phi;
         public static float[] theta;
         public static float[] yaw;
+        public static string dataTime;
         static public int head { get; set; }
         static MessagePackage()
         {
@@ -12,6 +13,7 @@
             theta = new float[700];
             yaw = new float[700];
             head = 0;
+            dataTime = "";
         }
     }
 }
