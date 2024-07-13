@@ -25,7 +25,7 @@ public partial class Dashboard : ContentPage
     private async void GetProfileInfo()
     {
         var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-        WelcomeUser.Text = "Welcome " + userInfo.User.Email +"\nEvaluate Your Game\nEvaluate Your Life";
+        WelcomeUser.Text = "Welcome " + "Phuong Lee" + "\nEvaluate Your Game\nEvaluate Your Life";
         Client.childName = GetUsernameFromEmail(userInfo.User.Email);
     }
     static string GetUsernameFromEmail(string email)

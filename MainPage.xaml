@@ -14,24 +14,16 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0" HorizontalOptions="Center">
-                <Image
-                Margin="0,30"
-                Aspect="AspectFit"
-                HeightRequest="200"
-                Source="logolab.png"
-                WidthRequest="80" />
-            </StackLayout>
 
             <Frame
             Grid.Row="1"
-            Margin="0,0,0,-40"
+            Margin="0,0,0,-80"
             BorderColor="#1C375C"
             CornerRadius="50"
             HasShadow="True"
             HeightRequest="700">
                 <Grid
-                Padding="20,50,20,0"
+                Padding="20,30,20,0"
                 HorizontalOptions="FillAndExpand"
                 RowSpacing="20"
                 VerticalOptions="FillAndExpand">
@@ -45,50 +37,68 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0"
+                        Padding="20,0,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="Center"
+                        Spacing="20">
+                        <Image
+                            Margin="0,30"
+                            Aspect="AspectFit"
+                            Source="logolab.png"
+                            WidthRequest="100" />
+                        <Image
+                            Margin="0,30"
+                            Aspect="AspectFit"
+                            Source="logopknu.png"
+                            WidthRequest="150" />
+                    </StackLayout>
                     <Label
-                    Grid.Row="0"
+                    Grid.Row="1"
                     FontAttributes="Bold"
                     FontSize="24"
                     HorizontalOptions="CenterAndExpand"
                     Text="Welcome Back!"
                     TextColor="#1C375C" />
                     <Label
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Margin="0,-15,0,0"
                     HorizontalOptions="CenterAndExpand"
                     Text="Login in to account"
                     TextColor="#1C375C" />
                     <Entry
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Margin="0,20,0,0"
                     HorizontalOptions="FillAndExpand"
                     Placeholder="Username"
                     Text="{Binding UserName}"
                     VerticalOptions="FillAndExpand" />
                     <Entry
-                    Grid.Row="3"
+                    Grid.Row="4"
                     HorizontalOptions="FillAndExpand"
                     IsPassword="True"
                     Placeholder="Password"
                     Text="{Binding UserPassword}"
                     VerticalOptions="FillAndExpand" />
                     <Button
-                    Grid.Row="4"
+                    Grid.Row="5"
                     BackgroundColor="#1C375C"
                     Command="{Binding LoginBtn}"
                     CornerRadius="20"
                     Text="Login" />
 
                     <Button
-                    Grid.Row="5"
+                    Grid.Row="6"
                     BackgroundColor="#1C375C"
                     Command="{Binding RegisterBtn}"
                     CornerRadius="20"
                     Text="Register new account" />
 
                     <StackLayout
-                    Grid.Row="6"
+                    Grid.Row="7"
                     HorizontalOptions="CenterAndExpand"
                     Orientation="Horizontal"
                     Spacing="40">
@@ -114,7 +124,7 @@
                         WidthRequest="30" />
                     </StackLayout>
                     <Label
-                    Grid.Row="7"
+                    Grid.Row="8"
                     FontAttributes="Bold"
                     HorizontalOptions="CenterAndExpand"
                     Text="Forget Password" />

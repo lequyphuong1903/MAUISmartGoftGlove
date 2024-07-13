@@ -26,7 +26,7 @@
                 Margin="0,30"
                 Aspect="AspectFit"
                 HeightRequest="80"
-                Source="avatar.png"
+                Source="avatar2.jpg"
                 WidthRequest="80" />
                 <Label
                 x:Name="WelcomeUser"
@@ -74,18 +74,19 @@
                      HorizontalOptions="CenterAndExpand"
                      Orientation="Horizontal"
                      Spacing="20">
+
                         <CollectionView x:Name="cliCollection"
-                        ItemsLayout="VerticalList"
-                        SelectionMode="Single"
-                        ItemsSource="{Binding _items}">
+                            ItemsLayout="VerticalList"
+                            SelectionMode="Single"
+                            ItemsSource = "{Binding items}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <VerticalStackLayout Background="White" Padding="50,10,50,10" Margin="5">
-                                        <Label Text="{Binding _title}" 
-                                           TextColor="#1C375C" 
-                                           FontSize="Body"
-                                           FontAttributes="Bold" 
-                                           HorizontalOptions="Center"/>
+                                        <Label Text="{Binding title}" 
+                                               TextColor="#1C375C" 
+                                               FontSize="Body"
+                                               FontAttributes="Bold" 
+                                               HorizontalOptions="Center"/>
                                     </VerticalStackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>

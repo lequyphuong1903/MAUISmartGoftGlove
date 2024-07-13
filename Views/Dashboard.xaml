@@ -27,7 +27,7 @@
                     Margin="0,30"
                     Aspect="AspectFit"
                     HeightRequest="80"
-                    Source="avatar.png"
+                    Source="avatar2.jpg"
                     WidthRequest="80" />
                 <Label
                     x:Name="WelcomeUser"

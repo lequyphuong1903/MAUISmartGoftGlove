@@ -1,42 +1,54 @@
 using Firebase.Database;
+using Microcharts;
 using SmartGolfGlove_V2.Models;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows.Input;
 
 namespace SmartGolfGlove_V2.Views;
 
 public partial class AboutUs : ContentPage
 {
+    FirebaseClient firebaseClient = new FirebaseClient(baseUrl: "https://wristmotionofglove-default-rtdb.firebaseio.com/");
+    public static ObservableCollection<ClientDB> clientDBList { get; set; } = new ObservableCollection<ClientDB>();
     public class Item
     {
-        public string _title { get; set; }
+        public string title { get; set; }
     }
-    public List<Item> _items;
-    public AboutUs(FirebaseClient firebaseClient)
+    public List<Item> items = new List<Item>();
+    public AboutUs()
 	{
 		InitializeComponent();
-        _items = new List<Item>();
         BindingContext = this;
-        Client.FirebaseClient = firebaseClient;
-        WelcomeUser.Text = "Welcome " + Client.childName + "\nEvaluate Your Game\nEvaluate Your Life";
-    }
-    public async Task LoadDataAsync()
-    {
-        var result = Client.FirebaseClient.Child(Client.childName).AsObservable<ClientDB>().Subscribe((item) =>
+        WelcomeUser.Text = "Welcome " + "Phuong Lee" + "\nEvaluate Your Game\nEvaluate Your Life";
+        var result = firebaseClient.Child(Client.childName).AsObservable<ClientDB>().Subscribe((item) =>
         {
             if (item.Object != null)
             {
-                Client.clientDBList.Add(item.Object);
-                _items.Add(new Item { _title = item.Object.dateTime });
+                clientDBList.Add(item.Object);
+                items.Add(new Item { title = item.Object.dateTime });
+                Debug.Write("HERE");
             }
         });
     }
-    private void CheckCallBack(object sender, EventArgs e)
+    public async Task LoadDataAsync()
     {
-        cliCollection.ItemsSource = _items;
+
+        
     }
-    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
+    private async void UpdateCollection()
     {
-        base.OnNavigatedTo(args);
-        await LoadDataAsync();
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            cliCollection.ItemsSource = items;
+        });
     }
+    private async void CheckCallBack(object sender, EventArgs e)
+    {
+        //Thread thread = new Thread(new ThreadStart(LoadDataAsync));
+        //thread.Start();
+        await Task.Run(LoadDataAsync);
+        await Task.Run(UpdateCollection);
+    }
+
 }
