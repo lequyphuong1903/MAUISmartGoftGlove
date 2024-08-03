@@ -78,6 +78,7 @@ public partial class Dashboard : ContentPage
                     MessagePackage.phi[MessagePackage.head] = BitConverter.ToSingle(bytes, 0);
                     MessagePackage.theta[MessagePackage.head] = BitConverter.ToSingle(bytes, 4);
                     MessagePackage.yaw[MessagePackage.head] = BitConverter.ToSingle(bytes, 8);
+                    MessagePackage.gyrTotal[MessagePackage.head] = BitConverter.ToSingle(bytes, 12);
                     MessagePackage.head++;
                     
                     if (MessagePackage.head >= 700)

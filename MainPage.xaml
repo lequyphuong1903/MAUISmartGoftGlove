@@ -120,7 +120,7 @@
                         <Image
                         Aspect="AspectFit"
                         HeightRequest="30"
-                        Source="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                        Source="kakaotalk.png"
                         WidthRequest="30" />
                     </StackLayout>
                     <Label

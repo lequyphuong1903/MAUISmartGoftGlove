@@ -3,10 +3,135 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartGolfGlove_V2.Views.ContactUs"
              Title="ContactUs">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <Grid
+        BackgroundColor="#1C375C"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Frame
+                Grid.Row="1"
+                Margin="0,0,0,-300"
+                BackgroundColor="White"
+                BorderColor="White"
+                HasShadow="True"
+                HeightRequest="700"
+                CornerRadius="50">
+                <Grid
+                    Padding="20,30,20,0"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="20"
+                    VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Contact Us"
+                        TextColor="#1C375C" />
+                    <StackLayout
+                        Grid.Row="2"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="40">
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo626DNKJxdHM-VNRD0m7x_8Jim-r9kRalJQ"
+                            WidthRequest="30" />
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnLfAn36-LTYNHjioWgvu-0KUTIDDrW5lX_g"
+                            WidthRequest="30" />
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            Source="gmail.png"
+                            WidthRequest="30" />
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            Source="kakaotalk.png"
+                            WidthRequest="30" />
+                    </StackLayout>
+                    <Label
+                        Grid.Row="4"
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="About Us"
+                        TextColor="#1C375C" />
+                    <StackLayout
+                        Grid.Row="6"
+                        HorizontalOptions="Start"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        <StackLayout Orientation="Vertical" Spacing="20">
+                            <Image
+                            Aspect="AspectFit"
+                            Source="logolab.png"
+                            WidthRequest="100" />
+                            <Image
+                            Aspect="AspectFit"
+                            Source="logopknu.png"
+                            WidthRequest="150" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Text="RLRC"
+                                TextColor="#1C375C" />
+                            <Label
+                                FontSize="15"
+                                Padding="0,20,0,0"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Text="Regional Leading"
+                                TextColor="#1C375C" />
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center"
+                                Text="Research Center"
+                                TextColor="#1C375C" />
+                            <Label
+                                FontSize="15"
+                                Padding="0,20,0,0"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center"
+                                Text="Place for a tagline"
+                                TextColor="#1C375C" />
+                            <Label
+                                FontSize="15"
+                                TextColor="Blue"
+                                TextDecorations="Underline"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center"
+                                Text="www.gsa.rlrc.com"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
 </ContentPage>
